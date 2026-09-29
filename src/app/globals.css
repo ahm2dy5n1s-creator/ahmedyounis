@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #1A1A24;
+  --bg-surface: #20202D;
+  --bg-elevated: #252533;
+  --accent-cyan: #00E5FF;
+  --accent-green: #00FA9A;
+  --text-primary: #F4F7FB;
+  --text-secondary: #A5AFBF;
+  --text-muted: #758194;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+}
+
+@layer base {
+  * {
+    @apply border-border-subtle;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(0, 229, 255, 0.25);
+    color: #00E5FF;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1A1A24;
+}
+::-webkit-scrollbar-thumb {
+  background: #2A2A3A;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #38384E;
+}
+
+/* Subtle glow effects */
+.glow-cyan-sm {
+  box-shadow: 0 0 20px -5px rgba(0, 229, 255, 0.35);
+}
+
+.glow-green-sm {
+  box-shadow: 0 0 20px -5px rgba(0, 250, 154, 0.35);
+}
+
+.text-gradient-cyan-green {
+  background: linear-gradient(135deg, #00E5FF 0%, #00FA9A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-silver {
+  background: linear-gradient(180deg, #FFFFFF 0%, #A5AFBF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-gradient-glow {
+  border-image: linear-gradient(135deg, rgba(0, 229, 255, 0.4), rgba(0, 250, 154, 0.2), rgba(255, 255, 255, 0.05)) 1;
+}
+
+/* Reduced Motion Fallback */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
